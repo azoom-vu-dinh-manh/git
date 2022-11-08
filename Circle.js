@@ -1,8 +1,8 @@
 var Shape = require('./Shape')
 
-class Square extends Shape {
+class Circle extends Shape {
     constructor() {
     }
 }
 
-module.exports = Square
+module.exports = Circle
