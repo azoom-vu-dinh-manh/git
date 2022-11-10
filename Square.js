@@ -2,6 +2,7 @@ var Shape = require('./Shape')
 
 class Square extends Shape {
     constructor(w, h) {
+        super()
         this.width = w
         this.height = h
     }
