@@ -9,6 +9,9 @@ class Dog {
     eat() {
         console.log(`Dog[${this.name}] eat`)
     }
+    sleep() {
+        console.log(`Dog[${this.name}] sleep`)
+    }
 }
 
 module.exports = Dog
