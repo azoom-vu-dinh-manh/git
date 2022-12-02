@@ -6,6 +6,9 @@ class Dog {
     move() {
         console.log(`Dog[${this.name}] move`)
     }
+    eat() {
+        console.log(`Dog[${this.name}] eat`)
+    }
 }
 
 module.exports = Dog
