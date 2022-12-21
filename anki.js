@@ -23,19 +23,32 @@ class envn_Cambridge {
 			const data = await api.fetch(url);
 			const parser = new DOMParser();
 			const doc = parser.parseFromString(data, 'text/html');
-			const entries = doc.querySelectorAll('.link.dlink') || [];
-			const reading = `/${doc.querySelector('.ipa.dipa').innerText}/`;
-			const expression = doc.querySelector('.di-title').innerText;
-
-			return [
-				{
-					css: this.css,
-					reading,
-					expression,
-					definitions: [`<span class="bg-green">[${reading}]</span>`],
-					audios: [],
-				},
-			];
+			return Array.from(doc.querySelectorAll('.link.dlink')).map(
+				(node) => {
+					const reading = `/${
+						node.querySelector('.ipa.dipa')?.innerText || ''
+					}/`;
+					const expression =
+						node.querySelector('.di-title')?.innerText || '';
+					const definitions = Array.from(
+						node.querySelectorAll('.ddef_block')
+					).map((i) => {
+						const sentences =
+							i.querySelector('.ddef_d.db')?.innerText || '';
+						const meaning =
+							i.querySelector('.dtrans')?.innerText || '';
+						const example = i.querySelector('.eg')?.innerText || '';
+						return `${sentences} | ${meaning} | ${example}`;
+					});
+					return {
+						css: this.css,
+						reading,
+						expression,
+						definitions,
+						audios: [],
+					};
+				}
+			);
 		} catch (err) {
 			return [
 				{
