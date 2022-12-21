@@ -26,18 +26,17 @@ class envn_Cambridge {
 			return Array.from(doc.querySelectorAll('.link.dlink')).map(
 				(node) => {
 					const reading = `/${
-						node.querySelector('.ipa.dipa')?.innerText || ''
+						node.querySelector('.ipa.dipa')?.innerText
 					}/`;
 					const expression =
-						node.querySelector('.di-title')?.innerText || '';
+						node.querySelector('.di-title')?.innerText;
 					const definitions = Array.from(
 						node.querySelectorAll('.ddef_block')
 					).map((i) => {
 						const sentences =
-							i.querySelector('.ddef_d.db')?.innerText || '';
-						const meaning =
-							i.querySelector('.dtrans')?.innerText || '';
-						const example = i.querySelector('.eg')?.innerText || '';
+							i.querySelector('.ddef_d.db')?.innerText;
+						const meaning = i.querySelector('.dtrans')?.innerText;
+						const example = i.querySelector('.eg')?.innerText;
 						return `${sentences} | ${meaning} | ${example}`;
 					});
 					return {
