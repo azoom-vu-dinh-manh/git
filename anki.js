@@ -1,8 +1,6 @@
-/* global api */
 class envn_Cambridge {
 	constructor(options) {
 		this.options = options;
-		this.maxexample = 2;
 		this.word = '';
 	}
 
@@ -17,9 +15,8 @@ class envn_Cambridge {
 
 	async findTerm(word) {
 		this.word = word;
-		let promises = [this.findCambridge(word), this.findYoudao(word)];
-		let results = await Promise.all(promises);
-		return [].concat(...results).filter((x) => x);
+		const result = await this.findCambridge(word);
+		return [this.options];
 	}
 
 	async findCambridge(word) {
@@ -42,7 +39,6 @@ class envn_Cambridge {
 		} catch (err) {
 			return [];
 		}
-		console.log(doc);
 
 		let entries = doc.querySelectorAll('.pr .entry-body__el') || [];
 		for (const entry of entries) {
