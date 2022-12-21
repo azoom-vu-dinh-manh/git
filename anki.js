@@ -51,7 +51,7 @@ class envn_Cambridge {
 							examples
 								.map(
 									(example) =>
-										`<li style="font-size: 0.8em;list-style: square inside;margin: 3px;">${example}</li>`
+										`<li style="font-size: 0.8em;list-style: square inside;margin-top: 2px;">${example}</li>`
 								)
 								.join('') +
 							'</ul>'
