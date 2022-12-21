@@ -13,8 +13,7 @@ class envn_Cambridge {
 	}
 
 	async findTerm(word) {
-		let notes = [];
-		if (!word) return notes;
+		if (!word) [];
 
 		let base =
 			'https://dictionary.cambridge.org/dictionary/english-vietnamese/';
@@ -36,7 +35,7 @@ class envn_Cambridge {
 				css: this.css,
 				reading,
 				expression,
-				definitions: [`<span class="bg-green">${hahaha}</span>`],
+				definitions: [`<span class="bg-green">[${reading}]</span>`],
 				audios: [],
 			},
 		];
