@@ -16,7 +16,15 @@ class envn_Cambridge {
 	async findTerm(word) {
 		this.word = word;
 		const result = await this.findCambridge(word);
-		return [this.options];
+		return [
+			{
+				css: '.bg { background: green }',
+				expression: 'expression',
+				reading: 'reading',
+				definitions: `<div class="bg">${word}<div>`,
+				audios: [],
+			},
+		];
 	}
 
 	async findCambridge(word) {
