@@ -21,7 +21,7 @@ class envn_Cambridge {
 				css: '.bg { background: green }',
 				expression: 'expression',
 				reading: 'reading',
-				definitions: `<div class="bg">${word}<div>`,
+				definitions: [`<div class="bg">${word}<div>`],
 				audios: [],
 			},
 		];
