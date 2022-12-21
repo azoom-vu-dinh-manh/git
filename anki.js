@@ -35,17 +35,11 @@ class envn_Cambridge {
 					const definitions = Array.from(
 						node.querySelectorAll('.ddef_block')
 					).map((i) => {
-						const sentence =
+						const sentences =
 							i.querySelector('.ddef_d.db')?.innerText;
 						const meaning = i.querySelector('.dtrans')?.innerText;
 						const example = i.querySelector('.eg')?.innerText;
-						return `
-						<span>
-							${sentence}
-						</span>
-						<span style="color: #0580e8">${meaning}</span>
-						<span style="font-size: 0.8em;list-style: square inside;margin: 3px 0;padding: 5px;background: rgba(13,71,161,0.1);border-radius: 5px">${example}</span>
-						`;
+						return `${sentences} | ${meaning} | ${example}`;
 					});
 					return {
 						css: this.css,
@@ -75,13 +69,12 @@ class envn_Cambridge {
 	get css() {
 		return `<style>
 		.odh-extra {
-			text-transform: lowercase;
-			font-size: 0.9em;
+			font-size: 14px;
+			font-style: italic;
+			font-weight: 700;
 			margin-right: 5px;
-			padding: 2px 4px;
-			color: white;
-			background-color: #0d47a1;
-			border-radius: 3px;
+			margin-bottom: 5px;
+			display: inline-block;
 		}
 		</style>`;
 	}
