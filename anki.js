@@ -18,27 +18,37 @@ class envn_Cambridge {
 		let base =
 			'https://dictionary.cambridge.org/dictionary/english-vietnamese/';
 		let url = base + encodeURIComponent(word);
-		let doc = '';
+		let doc;
 		try {
-			let data = await api.fetch(url);
-			let parser = new DOMParser();
-			doc = parser.parseFromString(data, 'text/html');
-		} catch (err) {
-			return [];
-		}
-		const entries = doc.querySelectorAll('.link.dlink') || [];
-		const reading = `/${doc.querySelector('.ipa.dipa').innerText}/`;
-		const expression = doc.querySelector('.di-title').innerText;
+			const data = await api.fetch(url);
+			const parser = new DOMParser();
+			const doc = parser.parseFromString(data, 'text/html');
+			const entries = doc.querySelectorAll('.link.dlink') || [];
+			const reading = `/${doc.querySelector('.ipa.dipa').innerText}/`;
+			const expression = doc.querySelector('.di-title').innerText;
 
-		return [
-			{
-				css: this.css,
-				reading,
-				expression,
-				definitions: [`<span class="bg-green">[${reading}]</span>`],
-				audios: [],
-			},
-		];
+			return [
+				{
+					css: this.css,
+					reading,
+					expression,
+					definitions: [`<span class="bg-green">[${reading}]</span>`],
+					audios: [],
+				},
+			];
+		} catch (err) {
+			return [
+				{
+					css: this.css,
+					reading: 'reading',
+					expression: 'abc',
+					definitions: [
+						`<span class="bg-green">[${'reading'}]</span>`,
+					],
+					audios: ['abc.com'],
+				},
+			];
+		}
 	}
 
 	get css() {
