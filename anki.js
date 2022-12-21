@@ -27,8 +27,11 @@ class envn_Cambridge {
 				(node) => {
 					const reading =
 						node.querySelector('.pron.dpron')?.innerText;
+					const type = node.querySelector('.pos.dpos')?.innerText;
+
 					const expression =
 						node.querySelector('.di-title')?.innerText;
+
 					const definitions = Array.from(
 						node.querySelectorAll('.ddef_block')
 					).map((i) => {
@@ -44,6 +47,7 @@ class envn_Cambridge {
 						expression,
 						definitions,
 						audios: [],
+						extrainfo: type,
 					};
 				}
 			);
