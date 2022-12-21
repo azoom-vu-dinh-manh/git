@@ -28,7 +28,7 @@ class envn_Cambridge {
 		}
 		const entries = doc.querySelectorAll('.link.dlink') || [];
 		const reading = `/${doc.querySelector('.ipa.dipa').innerText}/`;
-		const expression = document.querySelector('.di-title').innerText;
+		const expression = doc.querySelector('.di-title').innerText;
 
 		return [
 			{
