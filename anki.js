@@ -45,6 +45,7 @@ class envn_Cambridge {
 						</span>
 						<span style="color: #0580e8">${meaning}</span>
 						<span style="font-size: 0.8em;list-style: square inside;margin: 3px 0;padding: 5px;background: rgba(13,71,161,0.1);border-radius: 5px">${example}</span>
+						`;
 					});
 					return {
 						css: this.css,
