@@ -62,7 +62,7 @@ class envn_Cambridge {
 						reading,
 						expression,
 						definitions,
-						audios: [],
+						audios: await this.getAudios(word),
 						extrainfo: type,
 					};
 				}
@@ -79,6 +79,24 @@ class envn_Cambridge {
 					audios: ['abc.com'],
 				},
 			];
+		}
+	}
+
+	async getAudios(word) {
+		let base = 'https://dictionary.cambridge.org/dictionary/english/';
+		let url = base + encodeURIComponent(word);
+		let doc;
+		try {
+			const data = await api.fetch(url);
+			const parser = new DOMParser();
+			const doc = parser.parseFromString(data, 'text/html');
+
+			return [
+				doc.querySelector('.uk.dpron-i source')?.src,
+				doc.querySelector('.us.dpron-i source')?.src,
+			].filter((i) => i);
+		} catch (err) {
+			return [];
 		}
 	}
 
