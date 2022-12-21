@@ -68,8 +68,13 @@ class envn_Cambridge {
 
 	get css() {
 		return `<style>
-		.bg-bg {
-			background: green
+		.odh-extra {
+			font-size: 14px;
+			font-style: italic;
+			font-weight: 700;
+			margin-right: 5px;
+			margin-bottom: 5px;
+			display: inline-block;
 		}
 		</style>`;
 	}
