@@ -25,9 +25,8 @@ class envn_Cambridge {
 			const doc = parser.parseFromString(data, 'text/html');
 			return Array.from(doc.querySelectorAll('.link.dlink')).map(
 				(node) => {
-					const reading = `/${
-						node.querySelector('.ipa.dipa')?.innerText
-					}/`;
+					const reading =
+						node.querySelector('.pron.dpron')?.innerText;
 					const expression =
 						node.querySelector('.di-title')?.innerText;
 					const definitions = Array.from(
