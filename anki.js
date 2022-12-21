@@ -18,10 +18,10 @@ class envn_Cambridge {
 		// const result = await this.findCambridge(word);
 		return [
 			{
-				css: '.bg { background: green }',
+				css: '.bgg { background: green }',
 				expression: 'expression',
 				reading: 'reading',
-				definitions: [`<div class="bg">${word}<div>`],
+				definitions: [`<div class="bgg">${word}<div>`],
 				audios: [],
 			},
 		];
