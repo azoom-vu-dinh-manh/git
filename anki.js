@@ -47,11 +47,11 @@ class envn_Cambridge {
 							${sentence}
 						</div>
 						<div style="color: #0580e8">${meaning}</div>
-						<ul>` +
+						<ul style="padding: 0px;background: rgba(13,71,161,0.1);border-radius: 5px">` +
 							examples
 								.map(
 									(example) =>
-										`<li style="font-size: 0.8em;list-style: square inside;margin: 3px 0;padding: 5px;background: rgba(13,71,161,0.1);border-radius: 5px">${example}</li>`
+										`<li style="font-size: 0.8em;list-style: square inside;margin: 3px;">${example}</li>`
 								)
 								.join('') +
 							'</ul>'
