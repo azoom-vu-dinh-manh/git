@@ -40,11 +40,11 @@ class envn_Cambridge {
 						const meaning = i.querySelector('.dtrans')?.innerText;
 						const example = i.querySelector('.eg')?.innerText;
 						return `
-						<span>
+						<div>
 							${sentence}
-						</span>
-						<span style="color: #0580e8">${meaning}</span>
-						<span style="font-size: 0.8em;list-style: square inside;margin: 3px 0;padding: 5px;background: rgba(13,71,161,0.1);border-radius: 5px">${example}</span>
+						</div>
+						<div style="color: #0580e8">${meaning}</div>
+						<div style="font-size: 0.8em;list-style: square inside;margin: 3px 0;padding: 5px;background: rgba(13,71,161,0.1);border-radius: 5px">${example}</div>
 						`;
 					});
 					return {
