@@ -19,10 +19,12 @@ class envn_Cambridge {
 			'https://dictionary.cambridge.org/dictionary/english-vietnamese/';
 		let url = base + encodeURIComponent(word);
 		let doc;
+
 		try {
 			const data = await api.fetch(url);
 			const parser = new DOMParser();
 			const doc = parser.parseFromString(data, 'text/html');
+			const audios = await this.getAudios(word);
 			return Array.from(doc.querySelectorAll('.link.dlink')).map(
 				(node) => {
 					const reading =
@@ -62,7 +64,7 @@ class envn_Cambridge {
 						reading,
 						expression,
 						definitions,
-						audios: await this.getAudios(word),
+						audios,
 						extrainfo: type,
 					};
 				}
@@ -83,6 +85,9 @@ class envn_Cambridge {
 	}
 
 	async getAudios(word) {
+		if (!word) {
+			return [];
+		}
 		let base = 'https://dictionary.cambridge.org/dictionary/english/';
 		let url = base + encodeURIComponent(word);
 		let doc;
