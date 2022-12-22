@@ -23,6 +23,7 @@ class envn_Cambridge {
 			const data = await api.fetch(url);
 			const parser = new DOMParser();
 			const doc = parser.parseFromString(data, 'text/html');
+			const audios = await this.getAudios(word);
 			return Array.from(doc.querySelectorAll('.link.dlink')).map(
 				(node) => {
 					const reading =
@@ -62,7 +63,7 @@ class envn_Cambridge {
 						reading,
 						expression,
 						definitions,
-						audios: [],
+						audios,
 						extrainfo: type,
 					};
 				}
